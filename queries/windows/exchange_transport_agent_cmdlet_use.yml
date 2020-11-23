@@ -1,0 +1,16 @@
+title: Exchange Transport Agent Cmdlet Use
+description: Detection of Powershell TransportAgent Cmdlets being used to setup an
+  Exchange Transport Agent.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1505
+   subtechnique: 002
+operating_system: windows
+query: SrcProcCmdLine In Contains Anycase ("Install-TransportAgent","Enable-TransportAgent","Get-TransportAgent")
+  OR SrcProcCmdScript In Contains Anycase ("Install-TransportAgent","Enable-TransportAgent","Get-TransportAgent")
+false_positives: null
+tags: null
+

@@ -1,0 +1,16 @@
+title: Startup Shortcuts
+description: Detection .lnk or .url files written to Startup folders.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1547
+   subtechnique: 009
+operating_system: windows
+query: (FileFullName ContainsCIS "Microsoft\Windows\Start Menu\Programs\Startup" AND
+  TgtFileExtension In Contains ("lnk","url") AND EventType = "File Creation") AND
+  SrcProcName Not In ("ONENOTE.EXE","msiexec.exe")
+false_positives: Some application installs.
+tags: null
+

@@ -1,0 +1,17 @@
+title: Web Shell Creation
+description: Generic web shell detection with filtering of possibly trusted sources
+  of noise.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1505
+   subtechnique: 003
+operating_system: windows
+query: EventType = "File Creation" AND FileFullName ContainsCIS "inetpub\wwwroot"
+  AND TgtFileExtension In Contains Anycase ("jsp","aspx","php") AND SrcProcName Not
+  In ("explorer.exe","msdeploy.exe")
+false_positives: null
+tags: null
+

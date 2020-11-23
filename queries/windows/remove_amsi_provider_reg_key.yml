@@ -1,0 +1,15 @@
+title: Remove AMSI Provider Reg Key
+description: Detection of removal of AMSI as system provider.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 001
+operating_system: windows
+query: RegistryPath ContainsCIS "\Microsoft\AMSI\Providers" AND EventType In ("Registry
+  Key Delete","Registry Value Delete")
+false_positives: null
+tags: null
+

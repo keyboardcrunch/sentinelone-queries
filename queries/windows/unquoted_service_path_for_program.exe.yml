@@ -1,0 +1,16 @@
+title: Unquoted Service Path for program.exe
+description: Detects creation or modification of the file at C:\program.exe for exploiting
+  unquoted services paths of Program Files folder.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Persistence, Privilege Escalation
+   technique: T1574
+   subtechnique: 009
+operating_system: windows
+query: (FileFullName = "C:\program.exe" AND EventType In ("File Creation","File Modification"))
+  OR TgtProcImagePath = "C:\program.exe"
+false_positives: null
+tags: null
+

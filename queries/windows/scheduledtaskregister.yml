@@ -1,0 +1,15 @@
+title: ScheduledTaskRegister
+description: Leveraging the ScheduleTaskRegister Indicator object for detection of
+  registered tasks.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1053
+   subtechnique: 005
+operating_system: windows
+query: IndicatorName = "ScheduleTaskRegister" AND SrcProcParentName Not In ("Integrator.exe","OfficeClickToRun.exe","services.exe","OneDriveSetup.exe","Ccm32BitLauncher.exe","WmiPrvSE.exe")
+false_positives: null
+tags: null
+

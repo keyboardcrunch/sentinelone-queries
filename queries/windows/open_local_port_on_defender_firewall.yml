@@ -1,0 +1,15 @@
+title: Open Local Port on Defender Firewall
+description: Detection of opening of local ports within Defender Firewall.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 004
+operating_system: windows
+query: TgtProcName = "netsh.exe" AND TgtProcCmdLine ContainsCIS "add rule" AND TgtProcCmdLine
+  ContainsCIS "dir=in" AND TgtProcCmdLine ContainsCIS "localport="
+false_positives: null
+tags: null
+

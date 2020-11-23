@@ -1,0 +1,16 @@
+title: DLL Side-Loading of Notepad++ GUP.exe
+description: Detection for GUP.exe side-loading a dll, where executable has a display
+  name of "WinGup for Notepad++" and has non-standard source process. Keep an eye
+  on Cross Process events.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Persistence, Privilege Escalation
+   technique: T1574
+   subtechnique: 002
+operating_system: windows
+query: TgtProcDisplayName ContainsCIS "WinGup" and SrcProcName Not In ("notepad++.exe","explorer.exe","lsass.exe","csrss.exe","svchost.exe","WerFault.exe")
+false_positives: null
+tags: null
+

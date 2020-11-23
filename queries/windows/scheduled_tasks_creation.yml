@@ -1,0 +1,19 @@
+title: Scheduled Tasks Creation
+description: Our goal with this query is to detect any schtasks /create command as
+  well as any use of the New-ScheduledTask* cmdlets from powershell, and to prevent
+  noise from services and updates we'll exclude a list of system "trusted" SrcProcParentName
+  executables.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Execution, Persistence
+   technique: T1053
+   subtechnique: 005
+operating_system: windows
+query: (( TgtProcName = "schtasks.exe" AND TgtProcCmdLine ContainsCIS "/create" )
+  OR ( SrcProcCmdLine ContainsCIS "New-ScheduledTask" OR SrcProcCmdScript  ContainsCIS
+  "New-ScheduledTask" )) AND SrcProcParentName Not In ("services.exe","OfficeClickToRun.exe")
+false_positives: null
+tags: null
+

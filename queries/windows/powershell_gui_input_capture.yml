@@ -1,0 +1,17 @@
+title: PowerShell GUI Input Capture
+description: Focusing here on detecting the Powershell UI.PromptForCredential and
+  GetNetworkCredential().Password in CmdScript or CmdLine.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Credential Access
+   technique: T1056
+   subtechnique: 002
+operating_system: windows
+query: (TgtProcCmdline ContainsCIS ".UI.PromptForCredential(" AND TgtProcCmdline ContainsCIS  ".GetNetworkCredential().Password")
+  OR (SrcProcCmdScript ContainsCIS ".UI.PromptForCredential(" AND SrcProcCmdScript
+  ContainsCIS  ".GetNetworkCredential().Password")
+false_positives: null
+tags: null
+

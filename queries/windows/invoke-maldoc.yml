@@ -1,0 +1,22 @@
+title: Invoke-MalDoc
+description: This execution of macro code using Invoke-MalDoc triggers S1 T1027 Evasion
+  Indicator, so we could RegEx on IndicatorMetadata but that'd have noise. The query
+  should only be used for threat hunting, but it will detect Macro security settings
+  changes to the registry for Word and Excel as well as detecting COM objects within
+  ComandLine and CommandScript indicator objects. There may be a lot of results, focus
+  on Indicators and Command Scripts objects as they'll have less false positives.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Initial Access
+   technique: T1566
+   subtechnique: 001
+operating_system: windows
+query: (RegistryPath In Contains ("Word\Security\AccessVBOM","Excel\Security\AccessVBOM")
+  AND EventType In ("Registry Value Create","Registry Value Modified")) OR (SrcProcCmdLine
+  In Contains Anycase ("ActiveVBProject.VBComponents","Word.Application","Excel.Application")
+  OR SrcProcCmdScript In Contains Anycase ("ActiveVBProject.VBComponents","Word.Application","Excel.Application"))
+false_positives: null
+tags: null
+

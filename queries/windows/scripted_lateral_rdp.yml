@@ -1,0 +1,15 @@
+title: Scripted Lateral RDP
+description: Query will catch use of cmdkey for authenticating RDP sessions (often used for automated lateral movement).
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Lateral Movement
+   technique: T1021
+   subtechnique: 001
+operating_system: windows
+query: TgtProcName = "cmdkey.exe" AND TgtProcCmdLine ContainsCIS "/generic:TERMSRV"
+  AND TgtProcCmdLine ContainsCIS "/user:" AND TgtProcCmdLine ContainsCIS "/pass:"
+false_positives: null
+tags: null
+

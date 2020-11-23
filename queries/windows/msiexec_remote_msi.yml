@@ -1,0 +1,20 @@
+title: Msiexec Remote MSI
+description: The below query will accurately detect execution of remote msi files
+  by msiexec.exe. The second half of the query aims to detect processes spawned by
+  msi files instead of dll files in the CommandLine (as that is very noisy) and may
+  return a bit of noise within for the CrossProcess Object as some auto-update processes
+  may be collected by this query.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion
+   technique: T1218
+   subtechnique: 007
+operating_system: windows
+query: ( SrcProcName = "msiexec.exe" AND SrcProcCmdLine RegExp "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+  ) OR (SrcProcName RegExp "^.*\.(tmp)" AND EventType = "Open Remote Process Handle"
+  AND SrcProcParentName = "msiexec.exe")
+false_positives: null
+tags: null
+

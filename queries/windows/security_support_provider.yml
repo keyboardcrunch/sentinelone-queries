@@ -1,0 +1,18 @@
+title: Security Support Provider
+description: Detection of changes to Security Support Provider through Registry modification.
+  Filters most standard system changes with SrcProcName Not In (list) but there will
+  be some noise from installers.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1547
+   subtechnique: 005
+operating_system: windows
+query: RegistryKeyPath ContainsCIS "\Control\Lsa\Security Packages" AND (SrcProcName
+  Not In ("services.exe","SetupHost.exe","svchost.exe") AND SrcProcCmdLine Does Not
+  ContainCIS "system32\wsauth.dll")
+false_positives: null
+tags: null
+

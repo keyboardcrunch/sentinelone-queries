@@ -1,0 +1,16 @@
+title: Disabling Linux Firewall
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+description: Detection of Linux firewall being disabled.
+mitre:
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: null
+operating_system: linux
+query: (SrcProcName In Contains ("service","chkconfig") AND SrcProcCmdLine In Contains
+  ("off","stop") AND SrcProcCmdLine ContainsCIS "tables") OR (TgtProcName = "systemctl"
+  AND TgtProcCmdLine In Contains ("stop","disable") AND TgtProcCmdLine Contains "firewalld")
+false_positives: null
+tags: null
+

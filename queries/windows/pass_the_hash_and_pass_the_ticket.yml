@@ -1,0 +1,15 @@
+title: Pass the Hash & Pass the Ticket
+description: 'Detecting command line arguments of Mimikatz, so binary and powershell
+  mimikatz will be detected assuming arguments haven''t been modified before deployment. '
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Lateral Movement
+   technique: T1550
+   subtechnique: null
+operating_system: windows
+query: TgtProcCmdLine In Contains Anycase ("sekurlsa::pth","/ntlm:","kerberos::ptt")
+false_positives: null
+tags: null
+

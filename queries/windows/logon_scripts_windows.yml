@@ -1,0 +1,15 @@
+title: Logon Scripts Windows
+description: Detects addition of logon scripts through command line or registry methods.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1037
+   subtechnique: 001
+operating_system: windows
+query: SrcProcCmdLine ContainsCIS "UserInitMprLogonScript" OR (RegistryKeyPath ContainsCIS
+  "UserInitMprLogonScript" AND EventType = "Registry Value Create")
+false_positives: null
+tags: null
+

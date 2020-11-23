@@ -1,0 +1,18 @@
+title: Process Hollowing
+description: Detect Process Hollowing using the Start-Hollow powershell script, through
+  CommandLine and CommandScript indicators.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Privilege Escalation
+   technique: T1055
+   subtechnique: 012
+operating_system: windows
+query: '--- Detect Start-Hollow.ps1 by command or content
+
+  (SrcProcCmdScript ContainsCIS "Start-Hollow" AND SrcProcCmdScript ContainsCIS "[Hollow]::NtQueryInformationProcess")
+  OR TgtProcCmdLine ContainsCIS "Start-Hollow"'
+false_positives: null
+tags: null
+

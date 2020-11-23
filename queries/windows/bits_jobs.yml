@@ -1,0 +1,20 @@
+title: BITS Jobs
+description: The below query will find and remote content downloads from DesktopImgDownldr
+  or BitsAdmin processes, Start-BitsTransfer cmdlet downloads, and excludes system
+  processes and noise with SrcProcParentName Not In ().
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Persistence
+   technique: T1197
+   subtechnique: null
+operating_system: windows
+query: (( TgtProcName In Contains Anycase ("bitsadmin.exe","desktopimgdownldr.exe")
+  AND ( TgtProcCmdLine RegExp "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)"
+  OR TgtProcCmdLine ContainsCIS "/setnotifycmdline " ) ) OR ( TgtProcName = "powershell.exe"
+  AND TgtProcCmdLine ContainsCIS "Start-BitsTransfer" ) ) AND SrcProcParentName Not
+  In ("services.exe","smss.exe","wininit.exe")
+false_positives: null
+tags: null
+

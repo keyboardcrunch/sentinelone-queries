@@ -1,0 +1,17 @@
+title: Netsh Helper DLL
+description: Detection of "helper" dlls with network command shell, through command
+  arguments or registry modification.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1546
+   subtechnique: 007
+operating_system: windows
+query: (TgtProcName = "netsh.exe" AND TgtProcCmdLine ContainsCIS "add helper") OR
+  (RegistryPath ContainsCIS "SOFTWARE\Microsoft\NetSh" AND EventType = "Registry Value
+  Create")
+false_positives: null
+tags: null
+

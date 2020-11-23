@@ -1,0 +1,15 @@
+title: Windows Command Shell
+description: Query for bat files executed from temp directories where SrcProcParentName isn't an executable we want to filter.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Execution
+   technique: T1059
+   subtechnique: 003
+operating_system: windows
+query: (SrcProcName = "cmd.exe" AND FileFullName ContainsCIS "\Temp" AND FileType
+  = "bat") AND SrcProcParentName Not In ("msiexec.exe")
+false_positives: null
+tags: null
+

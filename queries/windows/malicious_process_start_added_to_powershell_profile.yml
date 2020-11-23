@@ -1,0 +1,18 @@
+title: Malicious Process Start Added to Powershell Profile
+description: Detects the addition of process execution strings (TgtProcCmdLine In
+  Contains Anycase (list))to the powershell profile, through CommandLine and CommandScript
+  indicators.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1546
+   subtechnique: 013
+operating_system: windows
+query: (SrcProcCmdScript ContainsCIS "Add-Content $profile -Value" AND SrcProcCmdScript
+  ContainsCIS "Start-Process") OR (TgtProcCmdLine ContainsCIS "Add-Content $profile"
+  AND TgtProcCmdLine In Contains Anycase ("Start-Process","& ","cmd.exe /c"))
+false_positives: null
+tags: null
+

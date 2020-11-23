@@ -1,0 +1,18 @@
+title: Inhibit System Recovery
+description: Detects the use of vssadmin, wbadmin, bcdedit and powershell deletion
+  of shadowcopy content and disabling of system recovery.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Impact
+   technique: T1490
+   subtechnique: null
+operating_system: windows
+query: TgtProcCmdLine In Contains Anycase ("delete shadows","shadowcopy delete","delete
+  catalog","recoveryenabled no") OR (TgtProcCmdLine ContainsCIS "Win32_ShadowCopy"
+  AND TgtProcCmdLine ContainsCIS "Delete()") OR (SrcProcCmdScript ContainsCIS "Win32_ShadowCopy"
+  AND SrcProcCmdScript ContainsCIS "Delete()")
+false_positives: null
+tags: null
+

@@ -1,0 +1,16 @@
+title: Screensaver Change
+description: Detects malicious changes to screensaver through Registry changes, filtering
+  expected processes.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence, Privilege Escalation
+   technique: T1546
+   subtechnique: 002
+operating_system: windows
+query: RegistryKeyPath ContainsCIS "Control Panel\Desktop\SCRNSAVE.EXE" AND (EventType
+  In ("Registry Value Create","Registry Value Modified") AND SrcProcName Not In ("svchost.exe","SetupHost.exe","CcmExec.exe"))
+false_positives: null
+tags: null
+

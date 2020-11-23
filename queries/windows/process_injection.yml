@@ -1,0 +1,17 @@
+title: T1055 Process Injection
+description: Detects Process Injection through execution of MavInject, filtering out
+  noisy/expected activity. SrcProcParentName filter narrows Cross Process items to
+  HQ results.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Privilege Escalation
+   technique: T1055
+   subtechnique: null
+operating_system: windows
+query: (TgtProcName = "mavinject.exe" AND TgtProcCmdLine ContainsCIS "/injectrunning")
+  AND (SrcProcName Not In ("AppVClient.exe") AND SrcProcParentName Not In ("smss.exe"))
+false_positives: null
+tags: null
+

@@ -1,0 +1,14 @@
+title: Secure Delete Data Destruction
+description: Detection of SDelete (by display name) and execution of DD command on *nix operating systems. Alternatively, DV 3.0 with 4.4 Agents will support TgtFileDeletionCount > "100" query for detection of over 100 files deleted, which can be combined with *FileType* for filtering.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Impact
+   technique: T1485
+   subtechnique: null
+operating_system: windows
+query: TgtProcDisplayName = "Secure file delete"
+false_positives: null
+tags: null
+

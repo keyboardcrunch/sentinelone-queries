@@ -1,0 +1,18 @@
+title: Winlogon Helper DLL
+description: Detects Winlogon Helper Dll changes through Registry MetadataIndicator
+  item, as it holds the full registry change info but will only return data of the
+  Indicators object type.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1547
+   subtechnique: 004
+operating_system: windows
+query: IndicatorMetadata In Contains Anycase ("Microsoft\Windows NT\CurrentVersion\Winlogon","Microsoft\Windows
+  NT\CurrentVersion\Winlogon\Notify") AND IndicatorMetadata In Contains Anycase ("logon","Userinit","Shell")
+  AND IndicatorMetadata Does Not ContainCIS "WINDOWS\system32\userinit.exe"
+false_positives: null
+tags: null
+

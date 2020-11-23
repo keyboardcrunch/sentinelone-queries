@@ -1,0 +1,18 @@
+title: Mshta
+description: SentinelOne happens to be pretty good at detecting MSHTA attacks, and
+  IndicatorName = "SuspiciousScript" specifically picks out these javascript based
+  attacks very well. The below query will detect mshta.exe spawning processes as well
+  as URLs for remote payloads to be loaded by mshta.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion
+   technique: T1218
+   subtechnique: 005
+operating_system: windows
+query: (SrcProcName = "mshta.exe" and EventType = "Open Remote Process Handle") OR
+  (SrcProcName = "mshta.exe" AND SrcProcCmdLine RegExp "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)")
+false_positives: null
+tags: null
+

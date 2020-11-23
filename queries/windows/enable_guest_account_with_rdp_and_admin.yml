@@ -1,0 +1,19 @@
+title: Enable Guest account with RDP and Admin
+description: Detects enabling of Guest account, adding Guest account to groups, as
+  well as changing of Deny/Allow of Terminal Server connections through Registry changes.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Initial Access, Persistence, Privilege Escalation, Defense Evasion
+   technique: T1078
+   subtechnique: 001
+operating_system: windows
+query: (SrcProcCmdLine ContainsCIS "net localgroup" AND SrcProcCmdLine ContainsCIS
+  "guest /add") OR (SrcProcCmdLine ContainsCIS "net user" AND SrcProcCmdLine ContainsCIS
+  "/active:yes") OR (RegistryKeyPath In Contains ("Terminal Server\AllowTSConnections","Terminal
+  Server\DenyTSConnections") AND EventType In ("Registry Value Create","Registry Value
+  Modified"))
+false_positives: null
+tags: null
+

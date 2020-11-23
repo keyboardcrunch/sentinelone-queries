@@ -1,0 +1,15 @@
+title: Startup Folder
+description: Detect any vbs, jse or bat files being written to any Programs\StartUp folder, be that ProgramData or AppData locations.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1547
+   subtechnique: 001
+operating_system: windows
+query: FileFullName ContainsCIS "Programs\Startup" AND FileType In Contains Anycase
+  ("vbs","jse","bat") AND EventType = "File Creation"
+false_positives: null
+tags: null
+

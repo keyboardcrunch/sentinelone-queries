@@ -1,0 +1,16 @@
+title: T1562.001 Disable Microsoft Office Security Features
+description: Detects disabling of Microsoft Office Security features.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 001
+operating_system: windows
+query: (RegistryKeyPath ContainsCIS "Excel\Security" OR RegistryKeyPath ContainsCIS
+  "Excel\Security\ProtectedView") AND RegistryKeyPath In Contains Anycase ("VBAWarnings","DisableInternetFilesInPV","DisableUnsafeLocationsInPV","DisableAttachementsInPV")
+  AND EventType In ("Registry Value Create","Registry Value Modified")
+false_positives: null
+tags: null
+

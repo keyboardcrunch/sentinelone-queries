@@ -1,0 +1,20 @@
+title: T1548.002 Bypass User Access Control
+description: Detection of UAC bypass through tampering with Shell Open for .ms-settings
+  or .msc file types. Beyond this Atomic test, and to further UAC bypass detection,
+  the below query includes detection for CMSTPLUA COM interface abuse by GUID. Noted
+  issues with Sentinel Agent 4.3.2.86 detecting by registry key. All registry key
+  paths were ControlSet001\Service\bam\State\UserSettings\GUID...
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Defense Evasion, Privilege Escalation
+   technique: T1548
+   subtechnique: 008
+operating_system: windows
+query: (SrcProcCmdLine ContainsCIS "ms-settings\shell\open\command" OR SrcProcCmdLine
+  ContainsCIS "mscfile\shell\open\command") OR (TgtProcDisplayName = "COM Surrogate"
+  AND TgtProcCmdLine ContainsCIS "{3E5FC7F9-9A51-4367-9063-A120244FBEC7}")
+false_positives: null
+tags: null
+

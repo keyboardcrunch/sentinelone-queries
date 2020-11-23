@@ -1,0 +1,17 @@
+title: Browser Extension Installation
+description: This query takes a lazy approach to detecting the staging of xpi or crx
+  extension packages for installation within Chrome and Firefox based browsers. Unsure
+  how to filter our extension updates without excluding too much.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Persistence
+   technique: T1176
+   subtechnique: null
+operating_system: windows
+query: ( FileFullName RegExp "\bWebstore Downloads\b.*\.(crx)$" OR FileFullName RegExp
+  "\bstaged\b.*\.(xpi)$" ) AND EventType = "File Creation"
+false_positives: null
+tags: null
+

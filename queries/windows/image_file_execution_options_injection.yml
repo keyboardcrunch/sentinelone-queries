@@ -1,0 +1,16 @@
+title: Image File Execution Options Injection
+description: Detection of Image File Execution Options tampering for persistence through
+  Registry monitoring.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Privilege Escalation, Persistence
+   technique: T1546
+   subtechnique: 012
+operating_system: windows
+query: RegistryKeyPath In Contains Anycase ("CurrentVersion\Image File Execution Options","CurrentVersion\SilentProcessExit")
+  AND RegistryKeyPath In Contains Anycase ("GlobalFlag","ReportingMode","MonitorProcess")
+false_positives: null
+tags: null
+

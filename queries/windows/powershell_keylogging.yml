@@ -1,0 +1,15 @@
+title: Powershell Keylogging
+description: Detect Get-KeyStrokes invocation by alias or CmdScript line matching.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Credential Access
+   technique: T1056
+   subtechnique: 001
+operating_system: windows
+query: TgtProcCmdline ContainsCIS "Get-Keystrokes" OR SrcProcCmdScript ContainsCIS
+  "user32.dll GetAsyncKeyState" OR SrcProcCmdScript ContainsCIS "[Windows.Forms.Keys][Runtime.InteropServices.Marshal]::ReadInt32("
+false_positives: null
+tags: null
+

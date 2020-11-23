@@ -1,0 +1,18 @@
+title: LSASS Memory Dumping
+description: Detection of wce by hash, procdump, comsvc, dumpert, mimikatz, pypykatz, and werfault all in one query.
+author: keyboardcrunch
+date: 10/10/2020
+modified: null
+mitre:
+   tactic: Credential Access
+   technique: T1003
+   subtechnique: 001
+operating_system: windows
+query: TgtProcImageSha1 = "f0c52cea19c204f5cdbe952cc7cfc182e20d8d43" OR TgtProcCmdline
+  ContainsCIS "-ma lsass.exe" OR TgtProcCmdline ContainsCIS "comsvcs.dll, MiniDump"
+  OR TgtFilePath = "C:\Windows\Temp\dumpert.dmp" OR TgtFilePath RegExp "^.*lsass.*.DMP"
+  OR (SrcProcCmdline ContainsCIS "sekurlsa::minidump" OR SrcProcCmdline ContainsCIS
+  "sekurlsa::logonpasswords") OR SrcProcCmdline ContainsCIS "live lsa"
+false_positives: null
+tags: null
+
