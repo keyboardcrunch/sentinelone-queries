@@ -1,0 +1,17 @@
+title: PowerShell TimeStomping
+description: Detection of time stomping with PowerShell.
+author: keyboardcrunch
+date: 24/11/2020
+modified:
+mitre: 
+   tactic: Defense Evasion
+   technique: T1070
+   subtechnique: 006
+operating_system: windows
+query: SrcProcCmdScript In Contains Anycase ("[IO.File]::SetCreationTime","[IO.File]::SetLastAccessTime","[IO.File]::SetLastWriteTime")
+false_positives:
+   - 
+tags:
+   - 
+references:
+   - https://attack.mitre.org/techniques/T1070/006/
