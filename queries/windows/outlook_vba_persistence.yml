@@ -1,0 +1,17 @@
+title: Outlook VBA Persistence
+description: Detection of persistence through VbaProject.OTM use in Outlook.
+author: keyboardcrunch
+date: 24/10/2020
+modified: 
+mitre:
+   tactic: Persistence
+   technique: T1137
+   subtechnique: 003
+operating_system: windows
+query: ( EventType In("File Creation", "File Modification") AND TgtFilePath Contains Anycase "\Roaming\Microsoft\Outlook" AND TgtFilePath EndsWith Anycase ".otm" ) OR ( EventType In ("Registry Value Create","Registry Value Modified") AND RegistryKeyPath ContainsCIS "Outlook\Security\Level" )
+false_positives:
+   - Possible legit uses of macros for sorting/saving emails.
+tags:
+   - 
+references:
+   - https://www.mdsec.co.uk/2020/11/a-fresh-outlook-on-mail-based-persistence/
