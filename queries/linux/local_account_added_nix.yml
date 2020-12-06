@@ -9,6 +9,7 @@ mitre:
    subtechnique: 
 operating_system: linux
 query: SrcProcCmdLine In Contains Anycase ("useradd")
-false_positives: General account maintenance.
+false_positives: 
+   - General account maintenance.
 tags: 
 references:
