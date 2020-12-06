@@ -1,4 +1,4 @@
-title: T1055 Process Injection
+title: Process Injection
 description: Detects Process Injection through execution of MavInject, filtering out
   noisy/expected activity. SrcProcParentName filter narrows Cross Process items to
   refine results.

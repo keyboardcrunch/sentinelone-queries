@@ -1,4 +1,4 @@
-title: T1562.001 Disable Microsoft Office Security Features
+title: Disable Microsoft Office Security Features
 description: Detects disabling of Microsoft Office Security features.
 author: keyboardcrunch
 date: 10/10/2020

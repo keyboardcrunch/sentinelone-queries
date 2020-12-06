@@ -1,4 +1,4 @@
-title: T1548.002 Bypass User Access Control
+title: Bypass User Access Control
 description: Detection of UAC bypass through tampering with Shell Open for .ms-settings
   or .msc file types. Also includes detection for CMSTPLUA COM interface abuse by GUID.
 author: keyboardcrunch
@@ -7,7 +7,7 @@ modified: 05/12/2020
 mitre:
    tactic: Defense Evasion, Privilege Escalation
    technique: T1548
-   subtechnique: 008
+   subtechnique: 002
 operating_system: windows
 query: (SrcProcCmdLine ContainsCIS "ms-settings\shell\open\command" OR SrcProcCmdLine
   ContainsCIS "mscfile\shell\open\command") OR (TgtProcDisplayName = "COM Surrogate"
