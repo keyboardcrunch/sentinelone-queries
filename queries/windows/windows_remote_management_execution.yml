@@ -1,12 +1,8 @@
-title: Windows Remote Management
-description: The below query (in order) remote process executions through MMC, WMIC,
-  and PsExec (by name or display name). Also of note, there are only 3 tests documented
-  for this Atomic, yet there are 6 tests, so the below query focuses on detectability.
-  PsExec detection may have a lot of noise depending on your environment, and may
-  require additional filtering.
+title: Windows Remote Management Execution
+description: Detect remote process executions through MMC, WMIC, and PsExec (by name or display name). 
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Lateral Movement
    technique: T1021
@@ -17,6 +13,7 @@ query: (TgtProcCmdLine ContainsCIS "GetTypeFromProgID(" AND TgtProcCmdLine Conta
   OR (TgtProcName = "wmic.exe" AND TgtProcCmdLine ContainsCIS "/node:" AND TgtProcCmdLine
   ContainsCIS "process call create") OR ((SrcProcName ContainsCIS "psexec.exe" OR
   SrcProcDisplayName = "Execute processes remotely") AND DstIp Is Not Empty)
-false_positives: null
-tags: null
+false_positives: 
+   - Legitimate usage of PSExec
+tags: 
 

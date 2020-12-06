@@ -1,9 +1,9 @@
 title: Group Policy Preference Cred Extraction
-description: Detection focuses on sysvol GP Policy xml file enumeration, with findstr
+description: Detection of sysvol GP Policy xml file enumeration, with findstr
   or Get-GPPPassword (Alias or CmdScript internal match).
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Credential Access
    technique: T1552
@@ -12,6 +12,6 @@ operating_system: windows
 query: TgtProcCmdline RegExp "^.*\/S cpassword.*\\sysvol\\.*.xml" OR TgtProcCmdline
   ContainsCIS "Get-GPPPassword" OR SrcProcCmdScript ContainsCIS "Get-ChildItem -Path
   \"\\$Server\SYSVOL\" -Recurse -ErrorAction SilentlyContinue -Include 'Groups.xml','Services.xml','Scheduledtasks.xml','DataSources.xml','Printers.xml','Drives.xml'"
-false_positives: null
-tags: null
+false_positives: 
+tags: 
 

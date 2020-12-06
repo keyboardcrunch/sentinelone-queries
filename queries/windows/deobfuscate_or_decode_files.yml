@@ -1,19 +1,17 @@
 title: Deobfuscate or Decode Files
-description: This Atomic tests detections of certutil encoding and decoding of executables,
-  and the replication of certutil for bypassing detection of executable encoding.
-  Our query below will detected renamed certutil through matching of DisplayName,
-  as well as encoding or decoding of exe files.
+description: Detect certutil encoding and decoding of executables,
+  or use of renamed certutil.exe for bypassing detections.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion
    technique: T1140
-   subtechnique: null
+   subtechnique: 
 operating_system: windows
 query: (TgtProcName != "certutil.exe" AND TgtProcDisplayName = "CertUtil.exe") OR
   ( TgtProcDisplayName = "CertUtil.exe" AND (TgtProcCmdLine RegExp "^.*(-decode).*\.(exe)"
   OR TgtProcCmdLine RegExp "^.*(-encode).*\.(exe)") )
-false_positives: null
-tags: null
+false_positives: 
+tags: 
 

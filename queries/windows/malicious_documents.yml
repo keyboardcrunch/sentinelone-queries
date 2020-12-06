@@ -1,10 +1,9 @@
 title: Malicious Documents
-description: The tests for this technique overlap heavily with T1566.001 Spearphishing
-  Attachment due to similar download and macro detections, so here we're focusing
-  on detecting Office applications launching processes.
+description: Detect high risk processes spawned from Office applications. Complementary to T1566.001 Spearphishing
+  Attachment due to similar download and macro detections.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Execution
    technique: T1204
@@ -13,6 +12,9 @@ operating_system: windows
 query: (SrcProcParentName In Contains ("WINWORD.EXE","EXCEL.EXE") AND SrcProcName
   In Contains Anycase ("cmd.exe","cscript.exe","wscript.exe","certutil.exe","powershell.exe","msbuild.exe","csc.exe"))
   OR IndicatorName = "SuspiciousDocument"
-false_positives: Legit docs with macros.
-tags: null
+false_positives: 
+   - Legit docs with macros.
+   - McAfee DLP hits on links opened from docs.
+   - Office plugins opening sites within browsers.
+tags: 
 

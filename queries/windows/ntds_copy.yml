@@ -1,6 +1,5 @@
 title: NTDS Copy
-description: We won't bother detecting VSS copies being created, rather detecting
-  credential file copies. NTDS.dit or SYSTEM whether a VSS copy or not.
+description: Detection of credential file copies, either NTDS.dit or SYSTEM whether a VSS copy or not.
 author: keyboardcrunch
 date: 10/10/2020
 modified: null

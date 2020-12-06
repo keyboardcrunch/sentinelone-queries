@@ -1,8 +1,8 @@
-title: Service Starting
+title: Service Started
 description: Detection of sc.exe start or start-service.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Execution
    technique: T1569
@@ -10,6 +10,7 @@ mitre:
 operating_system: windows
 query: (( SrcProcName = "sc.exe" AND SrcProcCmdLine ContainsCIS "create" ) OR SrcProcCmdLine
   ContainsCIS "Start-Service" ) AND SrcProcParentName != "services.exe"
-false_positives: Manual service actions.
-tags: null
+false_positives: 
+   - Manual service actions.
+tags: 
 

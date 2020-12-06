@@ -1,4 +1,4 @@
-title: Windows Command Shell
+title: Batchfile Execution from Temp
 description: Query for bat files executed from temp directories where SrcProcParentName isn't an executable we want to filter.
 author: keyboardcrunch
 date: 10/10/2020

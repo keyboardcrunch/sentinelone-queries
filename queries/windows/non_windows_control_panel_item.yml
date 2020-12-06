@@ -1,10 +1,9 @@
 title: Non-Windows Control Panel Item
-description: The below query will find all cpl files outside standard directories
-  and all cpl files executed outside of Windows directories. First portion of query
-  may need to be dropped if there's too much noise in your environment.
+description: Detect cpl files outside standard Windows directories. First portion
+  of query may need to be dropped if there is too much noise in your environment.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion
    technique: T1218
@@ -14,6 +13,7 @@ query: (TgtFileExtension = "cpl" AND TgtFilePath Does Not ContainCIS "C:\Windows
   AND TgtFilePath Does Not ContainCIS "C:\Program Files" AND TgtFilePath Does Not
   ContainCIS "C:\$WINDOWS.~BT") OR (SrcProcName = "control.exe" AND SrcProcCmdLine
   ContainsCIS ".cpl" AND SrcProcCmdLine Does Not ContainCIS "C:\Windows")
-false_positives: null
-tags: null
+false_positives: 
+   - Applications bringing their own cpl files
+tags: 
 

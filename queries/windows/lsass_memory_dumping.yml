@@ -1,5 +1,5 @@
 title: LSASS Memory Dumping
-description: Detection of wce by hash, procdump, comsvc, dumpert, mimikatz, pypykatz, and werfault all in one query.
+description: Detection of wce (by hash), procdump, comsvc, dumpert, mimikatz, pypykatz, and werfault for LSASS dumping all in one query.
 author: keyboardcrunch
 date: 10/10/2020
 modified: null

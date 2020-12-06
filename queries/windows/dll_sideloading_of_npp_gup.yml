@@ -1,0 +1,14 @@
+title: DLL Side-Loading of Notepad++ GUP.exe
+description: Detection of GUP.exe updater from Notepad++ being used for side-loading a dll.
+author: keyboardcrunch
+date: 10/10/2020
+modified: 05/12/2020
+mitre:
+   tactic: Defense Evasion, Persistence, Privilege Escalation
+   technique: T1574
+   subtechnique: 002
+operating_system: windows
+query: TgtProcDisplayName = "WinGup for Notepad++" and SrcProcName Not In ("notepad++.exe","explorer.exe","lsass.exe","csrss.exe","svchost.exe","WerFault.exe")
+false_positives: null
+tags: null
+

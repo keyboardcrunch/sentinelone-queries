@@ -11,6 +11,7 @@ operating_system: windows
 query: (FileFullName ContainsCIS "Microsoft\Windows\Start Menu\Programs\Startup" AND
   TgtFileExtension In Contains ("lnk","url") AND EventType = "File Creation") AND
   SrcProcName Not In ("ONENOTE.EXE","msiexec.exe")
-false_positives: Some application installs.
+false_positives: 
+   - Some application installs.
 tags: null
 

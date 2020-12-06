@@ -4,7 +4,7 @@ description: Detects parent PID spoofing through Cross Process indicators (SrcPr
   through Command Scripts indicators. Update the TgtProcName list to filter noise.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion, Privilege Escalation
    technique: T1134
@@ -15,6 +15,7 @@ query: (TgtProcRelation = "not_in_storyline" AND EventType = "Open Remote Proces
   AND TgtProcName != "sihost.exe" And TgtProcIntegrityLevel  != "LOW" AND TgtProcName
   Not In ("SystemSettings.exe")) OR (SrcProcCmdScript ContainsCIS "PPID-Spoof" AND
   SrcProcCmdScript ContainsCIS "hSpoofParent = [Kernel32]::OpenProcess")
-false_positives: null
-tags: null
+false_positives: 
+   - Cross Process indicators are noisy
+tags: 
 

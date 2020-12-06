@@ -1,14 +1,14 @@
 title: Disable Defender Firewall
-description: Detection on disabling Microsoft Defender Firewall.
+description: Detect disabling Microsoft Defender Firewall.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion
    technique: T1562
    subtechnique: 004
 operating_system: windows
 query: TgtProcName = "netsh.exe" AND TgtProcCmdLine ContainsCIS "state off"
-false_positives: null
-tags: null
+false_positives: 
+tags: 
 

@@ -1,5 +1,5 @@
 title: PowerShell GUI Input Capture
-description: Focusing here on detecting the Powershell UI.PromptForCredential and
+description: Detect usage of Powershell UI.PromptForCredential and
   GetNetworkCredential().Password in CmdScript or CmdLine.
 author: keyboardcrunch
 date: 10/10/2020

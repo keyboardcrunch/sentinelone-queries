@@ -1,8 +1,8 @@
 title: Disable Sysmon
-description: Detection of disabling the Sysmon driver or service.
+description: Detects disabling of the Sysmon driver or service.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion
    technique: T1562
@@ -10,6 +10,6 @@ mitre:
 operating_system: windows
 query: (TgtProcName = "fltmc.exe" AND TgtProcCmdLine ContainsCIS "unload SysmonDrv")
   OR (TgtProcName = "sysmon.exe" AND TgtProcCmdLine ContainsCIS "-u")
-false_positives: null
-tags: null
+false_positives: 
+tags: 
 

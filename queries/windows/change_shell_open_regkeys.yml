@@ -1,9 +1,8 @@
 title: Change Shell Open RegKeys
-description: Detection of file association changes. Detection by registry is noisy
-  due to problem filtering on registry root, so install/uninstall apps create noise.
+description: Detection of file association changes.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Persistence
    technique: T1546
@@ -14,6 +13,7 @@ query: '--- File assoc change by registry
   RegistryKeyPath In Contains Anycase ( "\shell\open\command" , "\shell\print\command"
   , "\shell\printto\command" ) AND EventType In ( "Registry Value Create" , "Registry
   Value Modified" )'
-false_positives: null
-tags: null
+false_positives: 
+   - Un/install of some applications
+tags: 
 

@@ -1,8 +1,8 @@
 title: Local Account Added Windows
-description: Query below we'll query all instances of local accounts being created.
+description: Detect all instances of local accounts being created.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Persistence
    technique: T1136
@@ -11,6 +11,7 @@ operating_system: windows
 query: SrcProcCmdLine In Contains Anycase ("net user /add","New-LocalUser")
   OR SrcProcCmdLine RegExp "\bdscl\b.*\b/\create\b" OR SrcProcCmdLine RegExp "\bnet
   localgroup administrators\b.*\b\/add\b"
-false_positives: General account maintenance.
-tags: null
+false_positives: 
+   - General account maintenance.
+tags: 
 

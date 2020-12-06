@@ -1,10 +1,8 @@
 title: Compiled HTML File
-description: Breaking down the below query, the first section will detect Atomic Test
-  1 where a malicious chm file spawns a process, whereas the second half of the query
-  detects hh.exe loading a remote payloads.
+description: Detect malicious chm file spawning a process or hh.exe loading a remote payloads.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Defense Evasion
    technique: T1218
@@ -12,6 +10,6 @@ mitre:
 operating_system: windows
 query: (SrcProcName = "hh.exe" AND EventType = "Open Remote Process Handle") OR (SrcProcName
   = "hh.exe" AND SrcProcCmdLine RegExp "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)")
-false_positives: null
-tags: null
+false_positives: 
+tags: 
 

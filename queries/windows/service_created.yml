@@ -3,13 +3,13 @@ description: Detects creation and modification of windows services through binPa
   argument to sc.exe.
 author: keyboardcrunch
 date: 10/10/2020
-modified: 05/12/2020
+modified: null
 mitre:
    tactic: Privilege Escalation
    technique: T1543
    subtechnique: 003
 operating_system: windows
 query: TgtProcName = "sc.exe" AND TgtProcCmdLine Contains "binPath="
-false_positives: 
-tags: 
+false_positives: null
+tags: null
 

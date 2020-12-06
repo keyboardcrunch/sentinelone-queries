@@ -1,6 +1,6 @@
 title: ScheduledTaskRegister
 description: Leveraging the ScheduleTaskRegister Indicator object for detection of
-  registered tasks.
+  registered tasks, but filtering for better quality results.
 author: keyboardcrunch
 date: 10/10/2020
 modified: null

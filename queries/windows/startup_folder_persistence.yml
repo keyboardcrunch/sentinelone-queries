@@ -1,4 +1,4 @@
-title: Startup Folder
+title: Startup Folder Persistence
 description: Detect any vbs, jse or bat files being written to any Programs\StartUp folder, be that ProgramData or AppData locations.
 author: keyboardcrunch
 date: 10/10/2020

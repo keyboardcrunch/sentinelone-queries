@@ -1,0 +1,14 @@
+title: CMSTP Signed Binary Proxy Execution
+description: Detect execution through CMSTP installations with INF files.
+author: keyboardcrunch
+date: 10/10/2020
+modified: 05/12/2020
+mitre:
+   tactic: Defense Evasion
+   technique: T1218
+   subtechnique: 003
+operating_system: windows
+query: SrcProcName = "cmstp.exe" AND SrcProcCmdLine RegExp "^.*\.(inf)"
+false_positives: 
+tags: 
+

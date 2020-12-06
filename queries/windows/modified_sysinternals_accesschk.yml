@@ -1,0 +1,16 @@
+title: Modified SysInternals AccessChk
+description: Detection of renamed AccessChk.exe, can be used for retrieval of the Chrome password db
+  as well as other privileged files.
+author: keyboardcrunch
+date: 10/10/2020
+modified: 05/12/2020
+mitre:
+   tactic: Credential Access
+   technique: T1555
+   subtechnique: 003
+operating_system: windows
+query: TgtProcName = "accesschk.exe" AND TgtProcDisplayName != "Reports effective
+  permissions for securable objects"
+false_positives: 
+tags: 
+

@@ -1,17 +1,18 @@
-title: Service Disable
-description: Detecting the disabling of services through sc.exe, wmic, and powershell Set-Service cmdlet.
+title: Service Disabled
+description: Detect disabling of services through sc.exe, wmic, and powershell Set-Service cmdlet.
 author: keyboardcrunch
 date: 10/10/2020
-modified: null
+modified: 05/12/2020
 mitre:
    tactic: Impact
    technique: T1489
-   subtechnique: null
+   subtechnique: 
 operating_system: windows
 query: (TgtProcName = "WMIC.exe" AND TgtProcCmdLine ContainsCIS "call ChangeStartmode
   Disabled") OR (TgtProcName = "sc.exe" AND TgtProcCmdLine ContainsCIS "disabled")
   OR (TgtProcCmdLine ContainsCIS "Set-Service" AND TgtProcCmdLine ContainsCIS "-StartupType
   Disabled")
-false_positives: Manual service toggling.
-tags: null
+false_positives: 
+   - Manual service toggling.
+tags: 
 
