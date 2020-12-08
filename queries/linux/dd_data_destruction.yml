@@ -1,5 +1,5 @@
 title: DD Data Destruction
-description: Detect data destruction with the DD command on *nix operating systems. Alternatively, DV 3.0 with 4.4 Agents will support TgtFileDeletionCount > "100" query for detection of over 100 files deleted, which can be combined with *FileType* for filtering.
+description: Detect data destruction with the DD command. Alternatively, DV 3.0 with 4.4 Agents will support TgtFileDeletionCount > "100" query for detection of over 100 files deleted, which can be combined with *FileType* for filtering.
 author: keyboardcrunch
 date: 10/10/2020
 modified: 05/12/2020
