@@ -1,0 +1,17 @@
+title: Sunburst Campaign
+description: Sunburst campaign IOCs documented by FireEye used in supply chain attack using trojanized SolarWinds Orion software.
+author: keyboardcrunch
+date: 13/12/2020
+modified:
+mitre: 
+   tactic: 
+   technique: 
+   subtechnique: 
+operating_system: windows
+query: DstIp In ("13.59.205.66","54.193.127.66","54.215.192.52","34.203.203.23","139.99.115.204","5.252.177.25","5.252.177.21","204.188.205.176","51.89.125.18","167.114.213.199") OR DnsRequest In Contains ("freescanonline.com","deftsecurity.com","freescanonline.com","thedoccloud.com","websitetheme.com","highdatabase.com","incomeupdate.com","databasegalore.com","panhardware.com","zupertech.com") OR Sha256 In ("d0d626deb3f9484e649294a8dfa814c5568f846d5aa02d4cdad5d041a29d5600","53f8dfc65169ccda021b72a62e0c22a4db7c4077f002fa742717d41b3c40f2c7","019085a76ba7126fff22770d71bd901c325fc68ac55aa743327984e89f4b0134","ce77d116a074dab7a22a0fd4f2c1ab475f16eec42e1ded3c0b0aa8211fe858d6","32519b85c0b422e4656de6e6c41878e95fd95026267daab4215ee59c107d6c77","292327e5c94afa352cc5a02ca273df543f2020d0e76368ff96c84f4e90778712","c15abaf51e78ca56c0376522d699c978217bf041a3bd3c71d09193efa5717c71")
+false_positives:
+tags:
+   - UNC2452
+   - SolarWinds
+references:
+   - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html
