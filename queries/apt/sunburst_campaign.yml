@@ -12,6 +12,7 @@ query: DstIp In ("13.59.205.66","54.193.127.66","54.215.192.52","34.203.203.23",
 false_positives:
 tags:
    - UNC2452
+   - DarkHalo
    - SolarWinds
 references:
    - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html
