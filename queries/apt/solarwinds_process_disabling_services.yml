@@ -1,0 +1,18 @@
+title: SolarWinds Process Disabling Services
+description: Detect the modification of service start type by SolarWinds processes.
+author: keyboardcrunch
+date: 18/12/2020
+modified:
+mitre: 
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 001
+operating_system: windows
+query: (RegistryKeyPath RegExp "\bMACHINE\\SYSTEM\\.*ControlSet.*\\Services\\.*\\Start" AND EventType = "Registry Value Modified") AND SrcProcName RegExp "(.*\.)?((SolarWinds.BusinessLayerHost.*|ConfigurationWizard.*|NetflowDatabasemaintenance.*|NetFlowService.*|SolarWinds.Administration.*|SolarWinds.Collector.Service.*|SolarwindsDiagnostics.*).exe)"
+false_positives:
+tags:
+   - UNC2452
+   - DarkHalo
+   - SolarWinds
+references:
+   - https://www.fireeye.com/blog/threat-research/2020/12/evasive-attacker-leverages-solarwinds-supply-chain-compromises-with-sunburst-backdoor.html
