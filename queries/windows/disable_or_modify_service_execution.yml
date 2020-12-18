@@ -1,0 +1,17 @@
+title: Disable or Modify Service Execution
+description: Detect the modification of service start type for defense evasion. Tuning will be required as many installers and updaters change service states.
+author: keyboardcrunch
+date: 18/12/2020
+modified:
+mitre: 
+   tactic: Defense Evasion
+   technique: T1562
+   subtechnique: 001
+operating_system: windows
+query: (RegistryKeyPath RegExp "\bMACHINE\\SYSTEM\\.*ControlSet.*\\Services\\.*\\Start" AND EventType = "Registry Value Modified") AND SrcProcParentName Not In ("services.exe","svchost.exe","smss.exe","WmiPrvSE.exe","wininit.exe","TiWorker.exe","msiexec.exe","OfficeClickToRun.exe") AND SrcProcName Not In ("GoogleUpdate.exe")
+false_positives:
+   - Updater services such as those for Chrome/Edge
+   - MSI installations
+   - Explicitly adjusted service states
+tags:
+references:
