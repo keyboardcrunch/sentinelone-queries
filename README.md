@@ -27,3 +27,6 @@ tags:                   -optional
 references:             -optional
    -
 ```
+
+## Work In Progress
+This repository is a continuation of the work put forth in the discontinued [SentinelOne ATTACK Queries](https://github.com/keyboardcrunch/SentinelOne-ATTACK-Queries) repository, and as it stands currently, the same Tactic coverage (gaps) exist between both repositories. 
