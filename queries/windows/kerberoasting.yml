@@ -1,0 +1,15 @@
+title: Kerberoasting
+description: Detects Kerberoasting through generic IndicatorName, excluding ManySPNRequests due to high FP.
+author: keyboardcrunch
+date: 17/03/2021
+modified: null
+mitre: 
+   tactic: Credential Access
+   technique: T1558
+   subtechnique: 003
+operating_system: linux
+query: IndicatorName StartsWith "Kerberoasting"
+false_positives: null
+tags: null
+references:
+   - https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1558.003/T1558.003.md
