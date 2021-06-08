@@ -8,7 +8,7 @@ mitre:
    technique: T1218
    subtechnique: 003
 operating_system: windows
-query: SrcProcName = "cmstp.exe" AND SrcProcCmdLine RegExp "^.*\.(inf)"
+query: SrcProcName = "cmstp.exe" AND SrcProcCmdLine ContainsCIS "/ni /s"
 false_positives: 
 tags: 
 
