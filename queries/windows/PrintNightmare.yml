@@ -1,0 +1,17 @@
+title: CVE-2021-1675 PrintNightmare
+description: Detection of yet another Print Spooler vuln.
+author: keyboardcrunch
+date: 30/06/2021
+modified:
+mitre: 
+   tactic: Persistence, Defense Evasion, Privilege Escalation
+   technique: T1574
+   subtechnique: 
+operating_system: windows
+query: TgtFilePath RegExp "(?i)C:\\Windows\\System32\\spool\\drivers\\x64\\3\\old\\([^1|2].*\.dll)" OR TgtFilePath RegExp "(?i)\\(MyExploit|evil|addCube|rev|rev2|main64|mimilib)\.dll$"
+false_positives: null
+tags:
+   - CVE-2021-1675
+   - PrintNightmare
+references:
+   - https://github.com/hhlxf/PrintNightmare
